@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        #tool-bar{
+            position: absolute;
+            top: 300px;
+            left: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            height: 30px;
+            line-height: 30px;
+            display: flex;
+            z-index: 1000;
+            background: #ffffff;
+        }
+        .font-control{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 30px;
+            transition: all ease .2s;
+            user-select: none;
+        }
+        .font-control:hover{
+            background: rgba(0,0,0,.1);
+        }
+        .content-edit{
+            display: flex;
+            /* border: 1px solid #000; */
+            outline: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+        .content-edit:focus{
+            outline: orange dotted 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="text">
+        <div id="tool-bar">
+            <span class="font-control" style="font-weight: bold;" onclick="bold()">B</span>
+            <span class="font-control" style="font-style: italic;" onclick="italic()">I</span>
+            <span class="font-control" style="color: orange;" onclick="changeColor()">T</span>
+            <span class="font-control" style="font-size: small;">S</span>
+            <span class="font-control" style="font-size: large;">L</span>
+        </div>
+        <div contenteditable="true" class="content-edit">
+            Lorem ipsum dolor sit amet co
+        </div>
+    </div>
+    <script>
+        // 加粗
+        const bold = (val) => {
+            clearMouseDown()
+            document.execCommand('StyleWithCSS', true)
+            document.execCommand('Bold', true, val)
+        }
+        // 斜体
+        const italic = (val) => {
+            clearMouseDown()
+            document.execCommand('StyleWithCSS', true)
+            document.execCommand('italic', false, val)
+        }
+        // 改变字体颜色
+        const changeColor = (val = '#ff0000') => {
+            clearMouseDown()
+            document.execCommand('StyleWithCSS', true)
+            document.execCommand('foreColor', false, val)
+        }
+
+        const clearMouseDown = () => {
+            document.onmousedown = null
+        }
+
+        // document.onmousedown = function(e) {
+        //     console.log("🚀 ~ file: canvas_input.html ~ line 71 ~ e", e)
+        //     if(e.clientX + 170 > document.body.offsetWidth || e.clientY + 40 > document.body.offsetHeight){
+        //         return
+        //     }
+        //     const toolBar = document.getElementById('tool-bar')
+        //     // console.log('clientX: ', clientX, ', clientY: ', clientY)
+            
+        //     // const {clientX, clientY} = e
+        //     // toolBar.style.top = clientX + 'px'
+        //     // toolBar.style.left = clientY + 'px'
+
+        //     const {clientX, clientY} = e;
+        //     toolBar.style.position = 'absolute';
+        //     toolBar.style.top = clientY - 60 + 'px';
+        //     toolBar.style.left = clientX - 85 + 'px';
+        // }
+    </script>
+</body>
+</html>
