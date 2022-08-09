@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="../input.css">
+</head>
+
+<body>
+    <div class="hand">
+        <div class="hand_left">
+            <label for="first">请输入房间号:</label>
+            <input id="first" name="name" type="text">
+        </div>
+        <div class="hand_right">
+            <button onclick="joinRoom()">加会</button>
+            <button onclick="leaveRoom()">退会</button>
+            <button onclick="createBoard()" id="createBoard">创建白板</button>
+            <button onclick="operateBoard()" id="operateBoard">关闭白板</button>
+        </div>
+        <a id="receiverBtn" target="_blank">接收者页面</a>
+    </div>
+    <hr>
+
+    <div class="board">
+        <div class="board_board" id="board_board" style="width: 100%;">
+            <div class="board-tool" id="board-tool">
+                <div class="tool-item" onclick="chooseMouse()">
+                    <i class="icon_mouse"></i>
+                    <p>鼠标</p>
+                </div>
+                <div class="tool-item" onclick="startHlightPoint()">
+                    <i class="icon_boarder_laserPen"></i>
+                    <p>激光笔</p>
+                </div>
+                <div class="tool-item boarder_pen">
+                    <i class="icon_boarder_pen"></i>
+                    <p>笔</p>
+                    <div class="choose_pen">
+                        <i class="icon_brokenLine" onclick="selectChangeType(5)"></i>
+                        <i class="icon_straightLine" onclick="selectChangeType(2)"></i>
+                        <i class="icon_arrows" onclick="selectChangeType(999)"></i>
+                        <i class="icon_ellipse" onclick="selectChangeType(4)"></i>
+                        <i class="icon_rectangle" onclick="selectChangeType(3)"></i>
+                        <i class="icon_fillRectangle" onclick="selectChangeType(333)"></i>
+                        <i class="icon_rhombus" onclick="selectChangeType(11)"></i>
+                        <i class="icon_tick" onclick="selectChangeType(13)"></i>
+                        <i class="icon_fixationArrows" onclick="selectChangeType(12)"></i>
+                        <i class="icon_cross" onclick="selectChangeType(14)"></i>
+                    </div>
+                </div>
+                <div class="tool-item">
+                    <input style="width: 23px; height: 23px;" id="colorIpt" onchange="selectToolColorChange()"
+                        type="color">
+                    <p>颜色</p>
+                </div>
+                <div class="tool-item" onclick="clearAnnotation()">
+                    <i class="icon_boarder_eraser"></i>
+                    <p>橡皮擦</p>
+                </div>
+                <div class="tool-item" onclick="undo()">
+                    <i class="icon_boarder_undo"></i>
+                    <p>撤销</p>
+                </div>
+                <div class="tool-item" onclick="eraser()">
+                    <i class="icon_boarder_clear"></i>
+                    <p>清除</p>
+                </div>
+                <div class="tool-item" onclick="download()">
+                    <i class="icon_boarder_save"></i>
+                    <p>保存</p>
+                </div>
+                <div class="tool-item" onclick="setTextState(true)">
+                    <p>写字</p>
+                </div>
+            </div>
+            <div id="tool-bar" style="display: none;">
+                <span class="font-control" style="font-weight: bold;" onclick="bold()">B</span>
+                <span class="font-control" style="font-style: italic;" onclick="italic()">I</span>
+                <span class="font-control" id="font-color-control" onclick="changeColor()">A</span>
+                <input class="font-control font-size-control" type="number" value="14" onchange="changeFontSize(this)">
+                <span class="font-control font-control-confirm" onclick="inputConfirm()"
+                    style="margin-left: 10px;width: 60px;font-size: 13px;border-radius: 3px;color: #ffffff;">确定</span>
+                <span class="font-control font-control-cancel" onclick="inputCancel()"
+                    style="margin-left: 10px;width: 60px;font-size: 13px;border-radius: 3px;color: #ffffff;">取消</span>
+                <div class="color-choose">
+                    <span class="color-btn" style="background: #e02020;" color="#e02020"></span>
+                    <span class="color-btn" style="background: #fa6400;" color="#fa6400"></span>
+                    <span class="color-btn" style="background: #f7b500;" color="#f7b500"></span>
+                    <span class="color-btn" style="background: #6dd400;" color="#6dd400"></span>
+                    <span class="color-btn" style="background: #44d7b6;" color="#44d7b6"></span>
+                    <span class="color-btn" style="background: #32c5ff;" color="#32c5ff"></span>
+                    <span class="color-btn" style="background: #0091ff;" color="#0091ff"></span>
+                    <span class="color-btn" style="background: #6236ff;" color="#6236ff"></span>
+                    <span class="color-btn" style="background: #b620e0;" color="#b620e0"></span>
+                    <span class="color-btn" style="background: #6d7278;" color="#6d7278"></span>
+                    <span class="color-btn" style="background: #000000;" color="#000000"></span>
+                    <span class="color-btn" style="background: #ffffff;" color="#ffffff"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <canvas style="display: none;" id="canvas"></canvas>
+
+    <script src="../lib/cn.tee3.avd-4.0.4.1.min.js?timestamp=202207281614"></script>
+    <script src="./js/text_input.js"></script>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../common/restAPI.js"></script>
+    <script src="../lib/config.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/index.js"></script>
+    <script>
+        let isTextState = false
+
+        function setTextState(state) {
+            if (state) {
+                chooseMouse()
+            }
+            isTextState = state
+        }
+    </script>
+</body>
+
+</html>

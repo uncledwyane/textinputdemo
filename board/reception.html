@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="hand">
+        <div class="hand_left">
+            <label for="first">请输入房间号:</label>
+            <input id="first" name="name" type="text">
+        </div>
+        <div class="hand_right">
+            <button onclick="joinRoom()">加会</button>
+            <button onclick="leaveRoom()">退会</button>
+        </div>
+    </div>
+    <div class="promptMsg"></div>
+    <hr>
+    <div class="board" id="board">
+        <div class="board-tool" id="board-tool">
+            <div class="tool-item" onclick="chooseMouse()">
+                <i class="icon_mouse"></i>
+                <p>鼠标</p>
+            </div>
+            <div class="tool-item" onclick="startHlightPoint()">
+                <i class="icon_boarder_laserPen"></i>
+                <p>激光笔</p>
+            </div>
+            <div class="tool-item boarder_pen">
+                <i class="icon_boarder_pen"></i>
+                <p>笔</p>
+                <div class="choose_pen">
+                    <i class="icon_brokenLine" onclick="selectChangeType(5)"></i>
+                    <i class="icon_straightLine" onclick="selectChangeType(2)"></i>
+                    <i class="icon_arrows" onclick="selectChangeType(999)"></i>
+                    <i class="icon_ellipse" onclick="selectChangeType(4)"></i>
+                    <i class="icon_rectangle" onclick="selectChangeType(3)"></i>
+                    <i class="icon_fillRectangle" onclick="selectChangeType(333)"></i>
+                    <i class="icon_rhombus" onclick="selectChangeType(11)"></i>
+                    <i class="icon_tick" onclick="selectChangeType(13)"></i>
+                    <i class="icon_fixationArrows" onclick="selectChangeType(12)"></i>
+                    <i class="icon_cross" onclick="selectChangeType(14)"></i>
+                </div>
+            </div>
+            <div class="tool-item">
+                <input style="width: 23px; height: 23px;" id="colorIpt" onchange="selectToolColorChange()" type="color">
+                <p>颜色</p>
+            </div>
+            <div class="tool-item" onclick="clearAnnotation()">
+                <i class="icon_boarder_eraser"></i>
+                <p>橡皮擦</p>
+            </div>
+            <div class="tool-item" onclick="undo()">
+                <i class="icon_boarder_undo"></i>
+                <p>撤销</p>
+            </div>
+            <div class="tool-item" onclick="eraser()">
+                <i class="icon_boarder_clear"></i>
+                <p>清除</p>
+            </div>
+            <div class="tool-item" onclick="download()">
+                <i class="icon_boarder_save"></i>
+                <p>保存</p>
+            </div>
+        </div>
+    </div>
+    <script src="../lib/cn.tee3.avd-4.0.4.1.min.js?timestamp=202207281614=202205251012"></script>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../common/restAPI.js"></script>
+    <script src="../lib/config.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/reception.js"></script>
+</body>
+</html>

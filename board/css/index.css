@@ -1,0 +1,275 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.hand {
+    display: flex;
+    justify-content: left;
+    height: 50px;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.hand button {
+    padding: 3px;
+}
+
+.hand input {
+    padding: 5px;
+}
+
+.hand_left {
+    font-size: 0;
+}
+
+.hand_left label {
+    font-size: 15px;
+}
+
+.hand_left input {
+    font-size: 15px;
+    width: 200px;
+}
+
+.hand_right {
+    margin-left: 100px;
+}
+
+.hand_right button {
+    margin: 0 10px;
+}
+
+.hand a{
+    float: right;
+}
+
+.board {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100vw;
+    background: rgba(61, 158, 223, 0.1);
+    border: 3px dotted rgba(61, 158, 223, 0.5);
+}
+
+.board .board_video{
+    width: 50%;
+}
+
+.board .board_video video {
+    /* width: 100%; */
+    /* height: 100%; */
+}
+
+.board .board_board{
+    box-sizing: border-box;
+}
+
+.board-tool {
+    width: 600px;
+    height: 60px;
+    background: #222;
+    position: absolute;
+    right: 300px;
+    top: -60px;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 10;
+    display: none;
+}
+
+.tool-item {
+    width: 100%;
+    height: 60px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tool-item i{
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    background-size: 100% 100%;
+}
+
+.tool-item p {
+    width: 100%;
+    text-align: center;
+}
+
+.icon_mouse {
+    background: url('../img/board_mouse.png');
+}
+
+.icon_boarder_laserPen {
+    background: url('../img/board_laserPen.png');
+}
+
+.icon_boarder_pen {
+    background: url('../img/board_pen.png');
+}
+
+.icon_boarder_eraser {
+    background: url('../img/board_eraser.png');
+}
+
+.icon_boarder_undo {
+    background: url('../img/board_undo.png');
+}
+
+.icon_boarder_redo {
+    background: url('../img/board_redo.png');
+}
+
+.icon_boarder_clear {
+    background: url('../img/board_clear.png');
+}
+
+.icon_boarder_save {
+    background: url('../img/board_save.png');
+}
+
+.boarder_pen {
+    position: relative;
+}
+
+.boarder_pen:hover .choose_pen{
+    display: block;
+}
+
+.choose_pen {
+    width: 252px;
+    height: 120px;
+    position: absolute;
+    background: #222;
+    top: 0;
+    left: 20px;
+    display: none;
+}
+
+.choose_pen i {
+    width: 20px;
+    height: 20px;
+    background-size: 100% 100%;
+    display: block;
+    float: left;
+    margin: 15px 15px;
+}
+
+.icon_brokenLine {
+    background: url('../img/1-1.png');
+}
+
+.icon_straightLine {
+    background: url('../img/1-2.png');
+}
+
+.icon_arrows {
+    background: url('../img/3-2.png');
+}
+
+.icon_ellipse {
+    background: url('../img/1-4.png');
+}
+
+.icon_rectangle {
+    background: url('../img/1-3.png');
+}
+
+.icon_fillRectangle {
+    background: url('../img/2-3.png');
+}
+
+.icon_rhombus {
+    background: url('../img/3-1.png');
+}
+
+.icon_tick {
+    background: url('../img/2-5.png');
+}
+
+.icon_fixationArrows {
+    background: url('../img/1-5.png');
+}
+
+.icon_cross {
+    background: url('../img/3-5.png');
+}
+
+.boardSetDom {
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid #222;
+    margin-top: -100px;
+    margin-left: -250px;
+    z-index: 100;
+    background: #fff;
+}
+
+.boardSetDom button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.bgSet {
+    margin: 20px 0;
+}
+
+#receiverBtn{
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    text-decoration: none;
+    display: none;
+}
+
+
+.changeBg{
+    width: 200px;
+    border: 1px solid rgb(201, 201, 201);
+    box-sizing: border-box;
+    padding: 5px;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
+    z-index: 10;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+.changeBg-option{
+    height: 40px;
+    border-bottom: 1px solid rgb(165, 165, 165);
+    display: flex;
+    align-items: center;
+}
+
+#changeBgColor{
+    display: flex;
+    float: right;
+    align-items: center;
+    justify-content: left;
+    /* border: 1px dotted #999999; */
+    font-size: 13px;
+    padding: 2px;
+    position: relative;
+    top: -3px;
+}
+#chooseBgColor{
+    height: 25px;
+    padding: 0;
+    box-sizing: border-box;
+}
