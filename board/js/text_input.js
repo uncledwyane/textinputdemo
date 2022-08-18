@@ -45,19 +45,23 @@ function initCanvasClick(e) {
 
 // 初始化文本输入框
 function prepareToEdit(x, y) {
-    let RandomId = Math.round(Math.random() * 10000000)
+    let randomId = Math.round(Math.random() * 10000000)
     // 改用span和contentEditable属性来设置，避免使用input导致宽度不能自增长的问题
     let newInputEl = document.createElement('span')
+    // let newInputDelEl = document.createElement('i')
     newInputEl.contentEditable = true
     newInputEl.style.fontSize = fontSize + 'px'
     newInputEl.className = 'content-edit content-edit-active'
+    newInputEl.setAttribute('textid', randomId)
+    // newInputDelEl.className = 'content-edit-del'
+    // newInputEl.appendChild(newInputDelEl)
     // 设置文本输入框位置
     setTextInputPos(newInputEl, x, y)
     // 将id和文本输入框绑定并保存到Map中
-    textMap.set(RandomId, newInputEl)
-    currBindText = RandomId
-    // 将创建的文本框设置为当前绑定文本输入框
-    setCurrBindTextEl(RandomId)
+    textMap.set(randomId, newInputEl)
+    currBindText = randomId
+    // 将创建的文本框设置为当前绑定文本输入框，用于设置样式
+    setCurrBindTextEl(randomId)
     // 聚焦到当前文本框
     newInputEl.focus()
 }
@@ -112,6 +116,32 @@ function setTextFinished() {
     inputEl.classList.remove('content-edit-active')
     inputEl.contentEditable = false
     inputEl.style.pointerEvents = 'none'
+
+    inputEl.onmouseover = e => {
+        if(isEraser){
+            const textId = e.target.getAttribute('textid')
+            let el = textMap.get(parseInt(textId))
+            boxWrapEl.removeChild(el)
+            textMap.delete(parseInt(textId))
+        }
+        console.log('newInputEl.onmouseover e: ', e.target.getAttribute('textid'))
+    }
+}
+
+function enableTextMouseEvent() {
+    if(textMap.size > 0){
+        textMap.forEach((value, key, map) => {
+            value.style.pointerEvents = 'auto'
+        })
+    }
+}
+
+function disableTextMouseEvent() {
+    if(textMap.size > 0){
+        textMap.forEach((value, key, map) => {
+            value.style.pointerEvents = 'none'
+        })
+    }
 }
 
 

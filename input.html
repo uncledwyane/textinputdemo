@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./input.js"></script>
     <link rel="stylesheet" href="./input.css">
 </head>
 
@@ -17,7 +16,7 @@
             <span class="font-control" style="font-style: italic;" onclick="italic()">I</span>
             <span class="font-control" id="font-color-control" onclick="changeColor()">A</span>
             <input class="font-control font-size-control" type="number" value="14" onchange="changeFontSize(this)">
-            <span class="font-control font-control-confirm" onclick="inputConfirm()"
+            <span class="font-control font-control-confirm" onclick="inputConfirm(this)"
                 style="margin-left: 10px;width: 60px;font-size: 13px;border-radius: 3px;color: #ffffff;">确定</span>
             <span class="font-control font-control-cancel" onclick="inputCancel()"
                 style="margin-left: 10px;width: 60px;font-size: 13px;border-radius: 3px;color: #ffffff;">取消</span>
@@ -39,6 +38,7 @@
         <!-- <input title="test" type="text" name="" class="content-edit" value="lorsdfasdf"><span class="del-btn">X</span></input> -->
         <canvas id="canvas"></canvas>
     </div>
+    <script src="./input.js"></script>
     <script>
         const canvasEl = document.getElementById('canvas')
 

@@ -43,24 +43,34 @@ function selectChangeType(shapeType) {
 		currentBoard.annotation.setArrowType(arrowTypeEnum.none);
 		currentBoard.annotation.setShapeType(shapeType);
 	}
+
+    disableTextMouseEvent()
+    
+    isEraser = false
 }
 
 // 橡皮擦
 function clearAnnotation() {
     setTextState(false)
 	currentBoard.annotation.setShapeType(shapeTypeEnum.eraser, './img/board_eraser.png');
+    isEraser = true
+    enableTextMouseEvent()
 }
 
 // 撤销
 function undo() {
 	currentBoard.annotation.undo();
     setTextState(false)
+    
+    disableTextMouseEvent()
 }
 
 // 清除
 function eraser() {
 	currentBoard.annotation.clear();
     setTextState(false)
+    
+    disableTextMouseEvent()
 }
 
 // 保存

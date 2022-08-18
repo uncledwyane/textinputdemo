@@ -31,6 +31,7 @@ body{
     background: rgba(0,0,0,.1);
 }
 
+/* 编辑框 */
 .content-edit{
     display: flex;
     /* border: 1px solid #000; */
@@ -46,9 +47,21 @@ body{
 .content-edit:disabled{
     background: rgba(0,0,0,.0);
 }
+.content-edit-del{
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: red;
+    position: absolute;
+    right: 10px;
+    top: -15px;
+    border-radius: 50%;
+    pointer-events: auto;
+}
+
 
 .font-control-confirm{
-    background: rgba(44, 123, 187, 0.507);
+    background: #307ebd81;
 }
 .font-control-confirm:hover{
     background-color: rgba(0, 65, 119, 0.774);

@@ -4,11 +4,13 @@ const boxWrapEl = document.getElementById('box-wrap')
 const fontColorControlEl = document.getElementById('font-color-control')
 
 let inputElClassList = null
-let canvasBg = null
+
+// 放置文字的父元素
+let currTextElParentNode = null
 
 
 // 装input
-const textMap = new Map()
+const textMap = new Map() // 放置当前页面所有文字元素的map（key: 文字元素id， value: 文字元素）
 // 当前textInput
 let currBindText = null
 // 是否是编辑状态
@@ -23,14 +25,14 @@ function init(canvas) {
     addCallbackToColorBtn()
     chooseColorIsShowControl(false)
     canvas.onclick = initCanvasClick
-    canvasBg = canvas
+    currTextElParentNode = canvas
 }
 
 function initCanvasClick(e) {
     if(!isEdit){
-        console.log(`+++canvasBg click, x: ${e.clientX}, y: ${e.clientY}`)
+        console.log(`+++currTextElParentNode click, x: ${e.clientX}, y: ${e.clientY}`)
         // 超出边界限制
-        if(e.clientX + 250 > canvasBg.offsetWidth || e.clientY + 20 > canvasBg.offsetHeight){
+        if(e.clientX + 250 > currTextElParentNode.offsetWidth || e.clientY + 20 > currTextElParentNode.offsetHeight){
             return
         }
         setToolBarPos(e.clientX, e.clientY)
@@ -59,7 +61,7 @@ function prepareToEdit(x, y) {
     newInputEl.focus()
 }
 // 点击完成
-function inputConfirm() {
+function inputConfirm(e) {
     // 处理完成的文本
     setTextFinished()
     setToolBarDisplay(false)

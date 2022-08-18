@@ -8,6 +8,108 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="../input.css">
+        <script type="text/javascript" src="../../../../../src/lib/jsbase64.js"></script>
+	    <script type="text/javascript" src="../../../../../src/lib/Long.js"></script>
+	    <script type="text/javascript" src="../../../../../src/lib/bytebuffer.js"></script>
+		<script type="text/javascript" src="../../../../../src/lib/log4javascript.js"></script>
+		<script type="text/javascript" src="../../../../../src/lib/protobuf.js"></script>
+		<script type="text/javascript" src="../../../../../src/lib/SdpSerializer.js"></script>
+		<script type="text/javascript" src="../../../../../src/lib/sdpTransform.js"></script>
+		<script type="text/javascript" src="../../../../../src/lib/when.js"></script>
+		<script type="text/javascript" src="../../../../../src/lib/eventUtil.js"></script>
+		<script type="text/javascript" src="../../../../../src/lib/debugout.js"></script>
+		<script type="text/javascript" src="../../../../../src/lib/zrender.js"></script>
+		<script type="text/javascript" src="../../../../../src/lib/axios.min.js"></script>
+		<script type="text/javascript" src="../../../../../src/lib/mqtt.min3.0.0.js"></script>
+		<script type="text/javascript" src="../../../../../src/lib/ua-parser.min.js"></script>
+		
+        <script type="text/javascript" src="../../../../../src/util/constant.js"></script>
+		<script type="text/javascript" src="../../../../../src/util/enum.js"></script>
+		<script type="text/javascript" src="../../../../../src/util/util.js"></script>
+		<script type="text/javascript" src="../../../../../src/util/moduleBase.js"></script>
+		<script type="text/javascript" src="../../../../../src/util/error.js"></script>
+		<script type="text/javascript" src="../../../../../src/util/roomCmdProto.js"></script>
+		<script type="text/javascript" src="../../../../../src/util/signalProto.js"></script>
+		<script type="text/javascript" src="../../../../../src/util/cmdProtobufCoded.js"></script>
+		<script type="text/javascript" src="../../../../../src/util/connectionInfoCollector.js"></script>
+		<script type="text/javascript" src="../../../../../src/util/connectionStatistics.js"></script>
+		<script type="text/javascript" src="../../../../../src/util/audioLevel.js"></script>
+		<script type="text/javascript" src="../../../../../src/util/localStatsCollector.js"></script>
+		<script type="text/javascript" src="../../../../../src/util/loggerReport.js"></script>
+		<script type="text/javascript" src="../../../../../src/util/Math.uuid.js"></script>
+		
+		<script type="text/javascript" src="../../../../../src/detect/browserInfo.js"></script>
+		<script type="text/javascript" src="../../../../../src/detect/OSInfo.js"></script>
+		<script type="text/javascript" src="../../../../../src/detect/checkGetUserMedia.js"></script>
+		<script type="text/javascript" src="../../../../../src/detect/checkRTCPeerConnection.js"></script>
+		<script type="text/javascript" src="../../../../../src/detect/checkDataChannel.js"></script>
+		<script type="text/javascript" src="../../../../../src/detect/browserDetect.js"></script>
+
+		<script type="text/javascript" src="../../../../../src/stream/base.js"></script>
+		<script type="text/javascript" src="../../../../../src/stream/video.js"></script>
+		<script type="text/javascript" src="../../../../../src/stream/audio.js"></script>
+		<script type="text/javascript" src="../../../../../src/stream/screen.js"></script>
+		<script type="text/javascript" src="../../../../../src/stream/streamUtil.js"></script>
+
+		<script type="text/javascript" src="../../../../../src/server/logServer.js"></script>
+		<script type="text/javascript" src="../../../../../src/server/restServer.js"></script>
+		<script type="text/javascript" src="../../../../../src/server/masterServer.js"></script>
+		<script type="text/javascript" src="../../../../../src/server/p2pServer.js"></script>
+
+		<script type="text/javascript" src="../../../../../src/avdEngine.js"></script>
+		<script type="text/javascript" src="../../../../../src/room/room.js"></script>
+		<script type="text/javascript" src="../../../../../src/sdp/sdp.js"></script>
+		<script type="text/javascript" src="../../../../../src/sdp/tojson.js"></script>
+		<script type="text/javascript" src="../../../../../src/sdp/tosdp.js"></script>
+
+		<script type="text/javascript" src="../../../../../src/connect/traceableWebsocket.js"></script>
+		<script type="text/javascript" src="../../../../../src/connect/traceablePeerConnection.js"></script>
+		<script type="text/javascript" src="../../../../../src/connect/traceableP2PPeerConnection.js"></script>
+		<script type="text/javascript" src="../../../../../src/connect/signalFactory.js"></script>
+
+		<script type="text/javascript" src="../../../../../src/user/user.js"></script>
+
+		<script type="text/javascript" src="../../../../../src/message/messageManager.js"></script>
+		
+		<script type="text/javascript" src="../../../../../src/electron/electronManager.js"></script>
+		<script type="text/javascript" src="../../../../../src/electron/peerConnection.js"></script>
+		
+		<script type="text/javascript" src="../../../../../src/board/board.js"></script>
+		<script type="text/javascript" src="../../../../../src/board/annotation.js"></script>
+		
+		<script type="text/javascript" src="../../../../../src/record/record.js"></script>
+		<script type="text/javascript" src="../../../../../src/record/recordRestServer.js"></script>
+		
+		<script type="text/javascript" src="../../../../../src/live/liveRestServer.js"></script>
+		<script type="text/javascript" src="../../../../../src/live/live.js"></script>
+		
+		<script type="text/javascript" src="../../../../../src/outgoing/outgoingRestServer.js"></script>
+		<script type="text/javascript" src="../../../../../src/outgoing/outgoing.js"></script>
+		
+		
+		<script type="text/javascript" src="../../../../../src/streamExport/streamExporterManager.js"></script>
+		<script type="text/javascript" src="../../../../../src/streamExport/streamExporterServer.js"></script>
+		
+		<script type="text/javascript" src="../../../../../src/electron/electronManager.js"></script>
+		<script type="text/javascript" src="../../../../../src/electron/peerConnection.js"></script>
+		
+		<script type="text/javascript" src="../../../../../src/rtm/rtmManager.js"></script>
+		<script type="text/javascript" src="../../../../../src/rtm/rtmMessageManager.js"></script>
+		<script type="text/javascript" src="../../../../../src/rtm/rtmServer.js"></script>
+		<script type="text/javascript" src="../../../../../src/rtm/rtmProtobufCoded.js"></script>
+		<script type="text/javascript" src="../../../../../src/rtm/clientUser.js"></script>
+		
+		<script type="text/javascript" src="../../../../../src/invite/inviteManager.js"></script>
+		<script type="text/javascript" src="../../../../../src/invite/invite.js"></script>
+		
+		<script type="text/javascript" src="../../../../../src/remoteControl/remoteControlManager.js"></script>
+		
+		<script type="text/javascript" src="../../../../../src/chat/chatManager.js"></script>
+		<script type="text/javascript" src="../../../../../src/chat/message.js"></script>
+		
+		<script type="text/javascript" src="../../../../../src/rpc/rpcManager.js"></script>
+		
+		<script type="text/javascript" src="../../../../../src/client.js"></script>
 </head>
 
 <body>
@@ -117,6 +219,7 @@
     <script src="./js/index.js"></script>
     <script>
         let isTextState = false
+        let isEraser = false
 
         function setTextState(state) {
             if (state) {
