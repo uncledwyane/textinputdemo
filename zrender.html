@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/zrender.js"></script>
+    <script src="./textrender.js"></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #app{
+            width: 800px;
+            height: 700px;
+            border: 1px dotted rgba(37, 48, 202, 0.493);
+            border-radius: 5px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        const zr = zrender.init(document.getElementById('app'))   
+        var text = new zrender.Text({
+            style: {
+                text: "测试测试Test",
+                fontSize: '20',
+                fontStyle: 'italic',
+                fontWeight: 'bold',
+                fill: '#fd1402',
+                // textPosition: 'bottom'
+            },
+            
+            position: [332,353],
+        })
+        zr.add(text); 
+
+        // TextInput
+        const ti = new TextInput(document.getElementById('app'))
+        ti.init()
+    </script>
+</body>
+</html>

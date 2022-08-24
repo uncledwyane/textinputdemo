@@ -14,6 +14,7 @@ var updateBoardBgColorBtn = document.getElementById('updateBoardBgColor');
 var chooseBgColorBtn = document.getElementById('chooseBgColor');
 var imageURL,localVideoId;
 var imgForCanvas = new Image();
+var textInput = null;
 
 
 var self = this;
@@ -65,7 +66,6 @@ function createRoom() {
     restApi.createRoom(self.accessToken, topic, self.userId).then((res) => {
         console.log('Success', res)
         $("#first").val(res.room_id);
-        joinRoom()
     }).otherwise((error) => {
         console.log("Error", error)
         $(".promptMsg").html('createRoom(),error:' + error.msg);
@@ -218,7 +218,9 @@ function createBoardHandle(board) {
     // newBoardDiv.appendChild(backgroundCanvas);
 	boardDom.appendChild(newBoardDiv);
     
-    init(newBoardCanvas, boardDom)
+    textInput = new TextInput(newBoardCanvas)
+    textInput.init()
+    
 	board.createAnnotation().then(function(annotation) {
 		annotation.init(newBoardCanvas)
 		board.annotation.hlightPointInit('./img/icon-laserPen-move.png', 30, 30);
